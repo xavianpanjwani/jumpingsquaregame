@@ -1,9 +1,12 @@
+<!-- GitHub Pages Site for Jumping Square Game -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chrome Dino Game</title>
+    <meta name="description" content="A simple jumping square game inspired by Chrome's dinosaur game">
+    <link rel="icon" href="data:,">
+    <title>Jumping Square Game</title>
     <style>
         * {
             margin: 0;
@@ -172,10 +175,16 @@
         document.addEventListener('keydown', (e) => {
             if (e.code === 'Space') jump();
         });
+        // Touch event for mobile devices
+        document.addEventListener('touchstart', () => {
+            jump();
+        });
         restartButton.addEventListener('click', restartGame);
 
-        // Start game
-        updateGame();
+        // Start game when DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            updateGame();
+        });
     </script>
 </body>
 </html>
